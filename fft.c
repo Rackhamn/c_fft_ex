@@ -124,7 +124,7 @@ for 4096 samples
 
 // * https://www.mathworks.com/help/matlab/ref/fft.html
 #define SAMPLE_FREQ 1000
-#define SIZE 2048*8
+#define SIZE 2048
 int main(void) {
 	complex io[SIZE]; 
 
