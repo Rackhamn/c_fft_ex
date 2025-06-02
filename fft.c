@@ -32,6 +32,7 @@ void fft(complex * buf, int n) {
 	free(out);
 }
 
+// * https://github.com/neeraj1397/Fast-Fourier-Transform-in-C/blob/main/Methodology%20and%20Theoretical%20verification.pdf
 // FFT = x[k] = (N-1)Sigma(n=0){ (x[n]e)^((-j*2 * pi * kn) / N) }
 // F(x) = Integral(+inf, -inf) == f(x) * e^(-x) * dt
 
