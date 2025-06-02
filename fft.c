@@ -101,20 +101,21 @@ for 4096 samples
 */
 
 // * https://www.mathworks.com/help/matlab/ref/fft.html
-#define SAMPLE_FREQ 1000
-#define SIZE 2048
+#define SAMPLE_FREQ	1000
+#define SIZE		2048
 int main(void) {
-	complex io[SIZE]; 
+	complex input[SIZE] = { 0 };
+	complex output[SIZE] = { 0 };
 
 	for(int i = 0; i < SIZE; i++) {
 		double t = i * (1.0 / (double)SAMPLE_FREQ);
 		double s = 0.8 + 0.7 * sin(2*PI*50*t) + sin(2*PI*120*t);
-		s += sin(2*PI*TAU*t);
+		// s += sin(2*PI*TAU*t);
 
 		// corrupt signal
 		s *= (rand() % sizeof(s));
 
-		io[i] = s;
+		input[i] = s;
         }
 
 #if 0
@@ -123,11 +124,11 @@ int main(void) {
 	printf("%i\n", SIZE);
 
 	for(int i = 0; i < SIZE; i++) {
-		printf("%f\n", creal(io[i]));
+		printf("%f\n", creal(input[i]));
 	}
 #else
-
-	fft(io, SIZE);
+	memcpy(output, input, sizeof(complex) * SIZE);
+	fft(output, SIZE);
 
 	printf("Single-Sided Amplitude Spectrum of X(t)\n");
 	printf("%i\n", SAMPLE_FREQ);
@@ -135,7 +136,7 @@ int main(void) {
 
 	double magnitude;
 	for(int i = 1; i < SIZE / 2; i++) {
-		magnitude = csqrt(io[i]);
+		magnitude = csqrt(output[i]);
 		printf("%f\n", magnitude);
 	}
 #endif
