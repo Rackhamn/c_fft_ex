@@ -7,7 +7,7 @@ x[k] = (N-1)Sigma(n=0){(x[n]e)^((-j*2 * pi * kn) / N)
 `plot.py` simply takes a this input from stdin and plots the `fft.c` output 
 
 ## Input Data
-![Figure 3](https://github.com/Rackhamn/c_fft_ex/blob/main/img/Figure_3.png)
+![Figure 2](https://github.com/Rackhamn/c_fft_ex/blob/main/img/Figure_2.png)
 
 ## Output Data 
 ![Figure 1](https://github.com/Rackhamn/c_fft_ex/blob/main/img/Figure_1.png)
